@@ -1,0 +1,155 @@
+@page {
+  margin: 1in;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(145deg, #fef6e4, #f9eae1);
+  counter-reset: page;
+  padding: 1in;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #555;
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+.table_of_contents{
+  align-items: flex-start;
+  font-size: 1.1rem;
+}
+
+.dedication{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dedication, .section, .closing {
+  margin-bottom: 1.5em;
+  border-radius: 10px;
+  padding: 1em;
+}
+.dedication p{
+  text-align: center;
+}
+.cover {
+  background-color: hsl(283, 54%, 84%);
+  padding: 3em 1.5em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.cover-inner {
+  background-color: #f9f2ff;
+  border: 3px solid #fff;
+  padding: 2em;
+  border-radius: 16px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 4em;
+}
+
+.cover-inner h1 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5em;
+  text-align: center;
+  text-wrap: nowrap;
+  color: #a64ac9;
+  margin-bottom: 0.3em;
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #ccc, inset 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.cover-inner .subtitle {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 1em;
+}
+
+.cover-inner p {
+  font-size: 1em;
+  color: #333;
+}
+
+
+.section h2, .closing h2 {
+  color: #a64ac9;
+  font-size: 1.8rem;
+  margin-bottom: 0.5em;
+  text-align: center;
+  text-wrap: nowrap;
+}
+.prayer {
+  color: #e67e22;
+  font-style: italic;
+  margin-top: 0.6em;
+  text-align: center;
+}
+strong {
+  color: #4a4a4a;
+}
+.closing p {
+  text-align: center;
+}
+.pagedjs_page {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+section, .section {
+  page-break-before: always;
+}
+
+/* PRINT */
+@media print {
+  .cover, .dedication, .section, .closing {
+    page-break-inside: avoid;
+    /* background: white !important; */
+    color: black !important;
+  }
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1e1e1e;
+    color: #f0f0f0;
+  }
+
+  .dedication, .section, .closing {
+    background: #2e2e2e;
+  }
+
+  .cover {
+    background: #333;
+  }
+
+  .section h2, .closing h2 {
+    color: #ffd3a3;
+  }
+
+  .prayer {
+    color: #f9c66b;
+  }
+
+  a {
+    color: #b3e5fc;
+  }
+}
