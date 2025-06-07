@@ -1,68 +1,39 @@
 
-  const pages = document.querySelectorAll('.page');
-  let currentIndex = -1;
+const pages = document.querySelectorAll('.page');
+let currentIndex = -1;
 
-  function showPage(index) {
-    pages.forEach((page, i) => {
-      page.classList.toggle('active', i === index);
-    });
-  }
-
-  document.getElementById('startBtn').addEventListener('click', () => {
-    document.querySelector('.cover').classList.remove('active');
-    currentIndex = 0;
-    showPage(currentIndex);
+function showPage(index) {
+  pages.forEach((page, i) => {
+    page.classList.toggle('active', i === index);
   });
+}
 
-  document.querySelectorAll('.prevBtn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        showPage(currentIndex);
-      }
-    });
-  });
+document.getElementById('startBtn').addEventListener('click', () => {
+  document.querySelector('.cover').classList.remove('active');
+  currentIndex = 0;
+  showPage(currentIndex);
+});
 
-  document.querySelectorAll('.nextBtn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (currentIndex < pages.length - 1) {
-        currentIndex++;
-        showPage(currentIndex);
-      }
-    });
-  });
-
-  // Start with all .page hidden
-  showPage(-1);
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-function handleSwipeGesture() {
-  if (touchEndX < touchStartX - 50) {
-    // Swipe left = Next page
-    if (currentIndex < pages.length - 1) {
-      currentIndex++;
-      showPage(currentIndex);
-    }
-  }
-  if (touchEndX > touchStartX + 50) {
-    // Swipe right = Previous page
+document.querySelectorAll('.prevBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
     if (currentIndex > 0) {
       currentIndex--;
       showPage(currentIndex);
     }
-  }
-}
-
-document.addEventListener('touchstart', (e) => {
-  touchStartX = e.changedTouches[0].screenX;
+  });
 });
 
-document.addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipeGesture();
+document.querySelectorAll('.nextBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (currentIndex < pages.length - 1) {
+      currentIndex++;
+      showPage(currentIndex);
+    }
+  });
 });
+
+// Start with all .page hidden
+showPage(-1);
 
 document.querySelectorAll('.table_of_contents a[href^="#"]').forEach(link => {
   link.addEventListener('click', function (e) {
