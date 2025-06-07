@@ -271,46 +271,42 @@ strong {
   display: none;
 }
 
-
-
-
-
-
-
-
-/* PRINT */
-/* @media print {
-  .cover, .dedication, .page, .closing {
-    page-break-inside: avoid; */
-    /* background: white !important; */
-    /* color: black !important;
-  }
-} */
-
-/* DARK MODE */
-/* @media (prefers-color-scheme: dark) {
+@media (max-width: 768px) {
   body {
-    background: #1e1e1e;
-    color: #f0f0f0;
+    font-size: 1.1rem;
+    padding: 0;
+    line-height: 1.4;
   }
 
-  .dedication, .page, .closing {
-    background: #2e2e2e;
+  .cover-inner,
+  .cover-frame,
+  .page,
+  .dedication.active,
+  .closing {
+    padding: 1em;
+    margin: 0 auto;
+    height: auto;
+    max-height: 100vh;
   }
 
-  .cover {
-    background: #333;
+  .cover-inner {
+    margin: 1em 0;
   }
 
-  .page h2, .closing h2 {
-    color: #ffd3a3;
+  .navigation {
+    padding: 0.3rem;
   }
 
-  .prayer {
-    color: #f9c66b;
+  .page h2,
+  .closing h2,
+  .cover-inner h1 {
+    font-size: 1.3rem;
+    white-space: normal;
   }
 
-  a {
-    color: #b3e5fc;
+  .page p,
+  .cover-inner p,
+  .subtitle {
+    font-size: 1rem;
   }
-} */
+}
