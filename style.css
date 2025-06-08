@@ -1,24 +1,22 @@
-@page {
-  margin: 1in;
-}
-
 html, body {
   overflow-x: hidden;
 }
 
 body {
   font-family: 'Georgia', serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   line-height: 1.6;
   color: #333;
   background: linear-gradient(145deg, #fef6e4, #f9eae1);
-  counter-reset: page;
   margin: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
+li{
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+}
 
 /* navigation */
 .navigation {
@@ -43,13 +41,15 @@ body {
   font-weight: bold;
   margin: 0 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /* cover */
 .cover{
   display: none;
   padding: 2em 2em 0;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
   margin-bottom: 1.5em;
@@ -65,7 +65,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   text-align: center;
 }
 
@@ -98,7 +97,7 @@ body {
 
 .cover-inner h1 {
   font-family: 'Georgia', serif;
-  font-size: 1.5em;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   text-align: center;
   text-wrap: nowrap;
   color: #a64ac9;
@@ -113,13 +112,13 @@ body {
 }
 
 .cover-inner p {
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: #333;
 }
 
 .subtitle {
   font-style: italic;
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 2.3vw, 1.4rem);
   color: #555;
 }
 
@@ -153,11 +152,13 @@ body {
 /* table of content */
 .table_of_contents{
   align-items: flex-start;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
 }
 
 .table_of_contents p{
-  padding: 0;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 1rem;
   margin: 0 0 0.5rem;
   color: gray;
   text-align: center;
@@ -171,9 +172,9 @@ body {
 }
 
 .toc-columns ul {
-  list-style-type: none;
+  list-style-type: decimal;
   padding: 0;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .toc-columns li {
@@ -192,7 +193,7 @@ body {
 
 .back-to-toc {
   text-align: center;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   margin-top: 0.5em;
   position: absolute;
   right: 2em;
@@ -213,10 +214,10 @@ body {
 /* page */
 .page {
   display: none;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   overflow: hidden;
-  padding: 2em;
+  padding-bottom: 2em;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
@@ -225,12 +226,11 @@ body {
 
 .page.active {
   display: flex;
-    overflow: hidden;
 }
 
 .page h2, .closing h2 {
   color: #a64ac9;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   margin-bottom: 0.5em;
   text-align: center;
   text-wrap: nowrap;
@@ -240,11 +240,17 @@ body {
   margin-bottom: 0;
 }
 
-.prayer {
+.verses p{
+  margin: 0.3em;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+}
+
+p.prayer {
   color: #e67e22;
   font-style: italic;
-  margin-top: 0.6em;
+  margin-top: 1.3em;
   text-align: center;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
 }
 strong {
   color: #4a4a4a;
@@ -260,6 +266,15 @@ strong {
   page-break-before: always;
 }
 
+h3{
+  color: #a64ac9;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+}
+
+.next-steps-link{
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
 .verses{
   display: flex;
   flex-direction: column;
@@ -271,42 +286,25 @@ strong {
   display: none;
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 1.1rem;
-    padding: 0;
-    line-height: 1.4;
+@media(max-width:529.99px){
+  .navigation{
+    justify-content: flex-start;
   }
 
-  .cover-inner,
-  .cover-frame,
-  .page,
-  .dedication.active,
-  .closing {
-    padding: 1em;
-    margin: 0 auto;
-    height: auto;
-    max-height: 100vh;
+  .nav{
+    justify-content: center;
   }
 
-  .cover-inner {
-    margin: 1em 0;
+  .navigation button {
+    padding: 10px 20px;
+    margin: 0 5px;
   }
 
-  .navigation {
-    padding: 0.3rem;
+  .cover{
+    height: 100%;
   }
 
-  .page h2,
-  .closing h2,
-  .cover-inner h1 {
-    font-size: 1.3rem;
-    white-space: normal;
-  }
-
-  .page p,
-  .cover-inner p,
-  .subtitle {
-    font-size: 1rem;
+  .back-to-toc {
+    right: 0.5em;
   }
 }
