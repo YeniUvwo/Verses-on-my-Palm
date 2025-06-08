@@ -172,7 +172,7 @@ li{
 }
 
 .toc-columns ul {
-  list-style-type: decimal;
+  list-style-type: none;
   padding: 0;
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
@@ -302,6 +302,11 @@ h3{
 
   .cover{
     height: 100%;
+  }
+
+  .toc-columns{
+    gap: 1em;
+    flex-wrap: nowrap;
   }
 
   .back-to-toc {
