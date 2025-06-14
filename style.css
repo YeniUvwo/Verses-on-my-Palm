@@ -16,6 +16,7 @@ body {
 
 li{
     font-size: clamp(1rem, 1.8vw, 1.1rem);
+    list-style-type: none;
 }
 
 /* navigation */
@@ -181,6 +182,7 @@ li{
   margin: 0.3em 0;
 }
 
+.declaration a,
 .toc-columns a {
   text-decoration: none;
   color: #a64ac9;
