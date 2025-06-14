@@ -182,10 +182,14 @@ li{
   margin: 0.3em 0;
 }
 
-.declaration a,
 .toc-columns a {
   text-decoration: none;
   color: #a64ac9;
+  font-weight: 500;
+}
+.declaration a{
+  text-decoration: underline;
+    color: #a64ac9;
   font-weight: 500;
 }
 
